@@ -9,17 +9,17 @@ Each Picto must have and image, a text and a Fitzgerald key color frame. And you
 
 ## Features
 
-TODO: List what your package can do. Maybe include images, gifs, or videos.
+Para hacer: Great  images, gifs, or videos.
 
 ## Getting started
 
-TODO: List prerequisites and provide or point to information on how to
-start using the package.
+Para hacer Enumere los requisitos previos y proporcione o señale información sobre cómo
+empezar a usar el paquete.
 
 ## Usage
 
-TODO: Include short and useful examples for package users. Add longer examples
-to `/example` folder. 
+Cosas: Incluya ejemplos breves y útiles para los usuarios del paquete. Agregar ejemplos más largos
+a la carpeta `/example`.
 
 ```dart
 const like = 'sample';
