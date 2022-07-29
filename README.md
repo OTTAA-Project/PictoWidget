@@ -1,7 +1,8 @@
 ![image](https://ottaaproject.com/img/ottaa-project.svg)
 
 # Welcome to OTTAA's Universal Pictogram Flutter Widget#
-
+Create great apps with Pictograms using OTTAA Picto widget, we feature a minimalistic design to foster understanding. 
+Each Picto must have and image, a text and a Fitzgerald key color frame. And you are good to go!
 
 ## Web Page
  * [Check our Web Page](https://ottaaproject.com)
