@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:picto_widget/picto_widget.dart';
 
@@ -30,18 +31,19 @@ class PictoWidgetExample extends StatelessWidget {
       backgroundColor: Colors.black,
       body: Column(
         children: [
-          PictoWidget(
-            onTap: () {
-              print('tapped');
-            },
-            width: MediaQuery.of(context).size.width * 0.2,
-            height: MediaQuery.of(context).size.height * 0.6,
-            text: 'Example',
-            imageUrl: 'http://via.placeholder.com/350x150',
-            colorNumber: 2,
-            onLongPress: () {
-              print('long pressed');
-            },
+          Expanded(
+            child: PictoWidget(
+              onTap: () {
+                print('tapped');
+              },
+              text: 'Example',
+              imageUrl: "https://picsum.photos/200",
+              image: CachedNetworkImage(imageUrl: "https://picsum.photos/200", fit: BoxFit.cover),
+              colorNumber: 2,
+              onLongPress: () {
+                print('long pressed');
+              },
+            ),
           ),
         ],
       ),
