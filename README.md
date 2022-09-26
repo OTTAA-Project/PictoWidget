@@ -9,12 +9,13 @@ Each Picto must have and image, a text and a Fitzgerald key color frame. And you
 
 ## Features
 
-Para hacer: Great  images, gifs, or videos.
+Are you creating an app that uses Pictograms? Pictowidget is a great place to start, you don't to worry about using the right proportions, formats, color or fonts. Just use it.
 
 ## Getting started
 
-Para hacer Enumere los requisitos previos y proporcione o señale información sobre cómo
-empezar a usar el paquete.
+To start using just add Pictowidget to your pubspec.yaml file.
+Make a flutter pub get.
+You are ready to go.
 
 ## Usage
 

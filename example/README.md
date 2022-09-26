@@ -1,15 +1,12 @@
 # example
 
-A new Flutter project.
+Pictowidget example project. Check this example for a thorough understanding of how to use this package. 
 
 ## Getting Started
 
-This project is a starting point for a Flutter application.
+This project is a starting point for a Pictowidget application.
 
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+Read package Readme for further information. 
 
 For help getting started with Flutter, view our
 [online documentation](https://flutter.dev/docs), which offers tutorials,
