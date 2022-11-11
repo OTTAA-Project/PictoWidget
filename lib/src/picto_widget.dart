@@ -26,6 +26,9 @@ class PictoWidget extends StatelessWidget {
   /// The width of the widget
   final double? width;
 
+  /// The border radius of the widget
+  final double? borderRadius;
+
   /// The image url to display
   ///
   /// deprecated Use [image] instead
@@ -61,12 +64,17 @@ class PictoWidget extends StatelessWidget {
     this.imageUrl,
     this.image,
     this.colorNumber = 6,
+    this.borderRadius,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     assert(colorNumber! >= 1 && colorNumber! <= 6);
     assert(image != null || imageUrl != null);
+    final size = MediaQuery.of(context).size;
+
+    final double nullableHeight = height ?? size.height;
+
     return GestureDetector(
       onLongPress: onLongPress,
       onTap: onTap,
@@ -75,7 +83,7 @@ class PictoWidget extends StatelessWidget {
         width: width,
         decoration: BoxDecoration(
           color: Colors.white,
-          borderRadius: BorderRadius.circular(height != null ? height! / 2 : 20),
+          borderRadius: BorderRadius.circular(borderRadius != null ? borderRadius! : nullableHeight * 0.03),
         ),
         child: Column(
           // mainAxisAlignment: MainAxisAlignment.spaceAround,
