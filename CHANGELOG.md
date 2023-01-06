@@ -18,3 +18,5 @@ Changed the height of the picto
 Fixing the error
 ## 0.0.5+3
 Fixed the disabled color issue
+## 0.0.5+4
+Added the radius to the corners of the shadow

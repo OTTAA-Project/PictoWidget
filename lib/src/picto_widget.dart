@@ -148,9 +148,10 @@ class PictoWidget extends StatelessWidget {
             disable
                 ? Container(
                     // height: height,
-                    // width: width,
+                    width: width +8,
                     decoration: BoxDecoration(
                       color: Colors.black.withOpacity(0.5),
+                      borderRadius: BorderRadius.circular(borderRadius),
                     ),
                   )
                 : Container(),
