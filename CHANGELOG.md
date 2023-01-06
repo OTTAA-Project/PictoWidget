@@ -16,3 +16,5 @@ Changed the picto design
 Changed the height of the picto
 ## 0.0.5+2
 Fixing the error
+## 0.0.5+3
+Fixed the disabled color issue
