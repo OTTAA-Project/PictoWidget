@@ -67,7 +67,7 @@ class PictoWidget extends StatelessWidget {
     Key? key,
     this.text = '',
     required this.onTap,
-    this.height = 124,
+    this.height = 30,
     this.width = 96,
     this.onLongPress,
     this.imageUrl,
