@@ -86,14 +86,14 @@ class PictoWidget extends StatelessWidget {
     return GestureDetector(
       onLongPress: onLongPress,
       onTap: add ? addFunc : onTap,
-      child: Container(
+      child: SizedBox(
         height: height,
         width: width,
         child: Stack(
           children: [
             Container(
-              height: height,
-              width: width,
+              // height: height,
+              // width: width,
               padding: const EdgeInsets.all(8),
               decoration: BoxDecoration(
                 color: Colors.white,

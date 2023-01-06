@@ -13,4 +13,6 @@ Improvements to image handling & minor tweaks.
 ## 0.0.5
 Changed the picto design
 ## 0.0.5+1
-changed the height of the picto
+Changed the height of the picto
+## 0.0.5+2
+Fixing the error

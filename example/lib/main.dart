@@ -33,18 +33,30 @@ class PictoWidgetExample extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Center(
-            child: PictoWidget(
-              onTap: () {
-                print('tapped');
-              },
-              text: 'Example',
-              imageUrl: "https://picsum.photos/200",
-              image: CachedNetworkImage(imageUrl: "https://picsum.photos/200", fit: BoxFit.cover),
-              colorNumber: 2,
-              onLongPress: () {
-                print('long pressed');
-              },
+          Expanded(
+            child: GridView.builder(
+              padding: const EdgeInsets.symmetric(horizontal: 24),
+              shrinkWrap: false,
+              itemCount: 20,
+              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                crossAxisCount: 3,
+                crossAxisSpacing: 12,
+                mainAxisSpacing: 12,
+                mainAxisExtent: 130,
+              ),
+              itemBuilder: (context, index) => PictoWidget(
+                onTap: () {
+                  print('tapped');
+                },
+                text: 'Example',
+                imageUrl: "https://picsum.photos/200",
+                image: CachedNetworkImage(
+                    imageUrl: "https://picsum.photos/200", fit: BoxFit.cover),
+                colorNumber: 2,
+                onLongPress: () {
+                  print('long pressed');
+                },
+              ),
             ),
           ),
         ],
