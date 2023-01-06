@@ -9,3 +9,6 @@ License and Readme updates.
 
 ## 0.0.4
 Improvements to image handling & minor tweaks.
+
+## 0.0.5
+Changed the picto design

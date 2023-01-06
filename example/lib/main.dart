@@ -30,8 +30,10 @@ class PictoWidgetExample extends StatelessWidget {
     return Scaffold(
       backgroundColor: Colors.black,
       body: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Expanded(
+          Center(
             child: PictoWidget(
               onTap: () {
                 print('tapped');
