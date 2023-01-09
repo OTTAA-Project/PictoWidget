@@ -42,13 +42,13 @@ class PictoWidgetExample extends StatelessWidget {
                 crossAxisCount: 3,
                 crossAxisSpacing: 12,
                 mainAxisSpacing: 12,
-                mainAxisExtent: 130,
+                mainAxisExtent: 140,
               ),
               itemBuilder: (context, index) => PictoWidget(
                 onTap: () {
                   print('tapped');
                 },
-                text: 'Example',
+                text: 'Example is preet long thi stime',
                 imageUrl: "https://picsum.photos/200",
                 image: CachedNetworkImage(
                     imageUrl: "https://picsum.photos/200", fit: BoxFit.cover),

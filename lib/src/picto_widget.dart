@@ -67,7 +67,7 @@ class PictoWidget extends StatelessWidget {
     Key? key,
     this.text = '',
     required this.onTap,
-    this.height = 30,
+    this.height = 120,
     this.width = 96,
     this.onLongPress,
     this.imageUrl,
@@ -86,92 +86,91 @@ class PictoWidget extends StatelessWidget {
     return GestureDetector(
       onLongPress: onLongPress,
       onTap: add ? addFunc : onTap,
-      child: SizedBox(
-        height: height,
-        width: width,
-        child: Stack(
-          children: [
-            Container(
-              // height: height,
-              // width: width,
-              padding: const EdgeInsets.all(8),
-              decoration: BoxDecoration(
-                color: Colors.white,
-                borderRadius: BorderRadius.circular(borderRadius),
-                border: Border.all(color: groupColor[colorNumber]!, width: 3),
-              ),
-              child: Column(
-                // mainAxisAlignment: MainAxisAlignment.spaceAround,
-                children: [
-                  Container(
-                    height: 80,
-                    width: 80,
-                    clipBehavior: Clip.antiAlias,
+      child: Stack(
+        children: [
+          Container(
+            // height: height,
+            // width: width,
+            padding: const EdgeInsets.all(8),
+            decoration: BoxDecoration(
+              color: Colors.white,
+              borderRadius: BorderRadius.circular(borderRadius),
+              border: Border.all(color: groupColor[colorNumber]!, width: 3),
+            ),
+            child: Column(
+              // mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: [
+                Container(
+                  height: 80,
+                  width: 80,
+                  clipBehavior: Clip.antiAlias,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(8),
+                  ),
+                  child: imageUrl != null
+                      ? Image.network(
+                          imageUrl!,
+                          fit: BoxFit.fill,
+                          loadingBuilder: (context, child, loadingProgress) {
+                            if (loadingProgress == null) return child;
+                            return Center(
+                              child: CircularProgressIndicator(
+                                color: Colors.orange,
+                                value: loadingProgress.expectedTotalBytes !=
+                                        null
+                                    ? loadingProgress.cumulativeBytesLoaded /
+                                        loadingProgress.expectedTotalBytes!
+                                    : null,
+                              ),
+                            );
+                          },
+                        )
+                      : image != null
+                          ? image!
+                          : Container(),
+                ),
+                const SizedBox(
+                  height: 8,
+                ),
+                Text(
+                  text == '' ? '' : text.toUpperCase(),
+                  style: const TextStyle(
+                    fontSize: 12,
+                    fontWeight: FontWeight.w600,
+                  ),
+                  maxLines: 2,
+                  textAlign: TextAlign.center,
+                  overflow: TextOverflow.ellipsis,
+                ),
+              ],
+            ),
+          ),
+          disable
+              ? Container(
+                  // height: height,
+                  width: width + 8,
+                  decoration: BoxDecoration(
+                    color: Colors.black.withOpacity(0.5),
+                    borderRadius: BorderRadius.circular(borderRadius),
+                  ),
+                )
+              : Container(),
+          add
+              ? Center(
+                  child: Container(
                     decoration: BoxDecoration(
+                      color: groupColor[2],
                       borderRadius: BorderRadius.circular(8),
                     ),
-                    child: imageUrl != null
-                        ? Image.network(
-                            imageUrl!,
-                            fit: BoxFit.fill,
-                            loadingBuilder: (context, child, loadingProgress) {
-                              if (loadingProgress == null) return child;
-                              return Center(
-                                child: CircularProgressIndicator(
-                                  color: Colors.orange,
-                                  value: loadingProgress.expectedTotalBytes !=
-                                          null
-                                      ? loadingProgress.cumulativeBytesLoaded /
-                                          loadingProgress.expectedTotalBytes!
-                                      : null,
-                                ),
-                              );
-                            },
-                          )
-                        : image != null
-                            ? image!
-                            : Container(),
-                  ),
-                  const SizedBox(
-                    height: 8,
-                  ),
-                  Text(
-                    text == '' ? '' : text.toUpperCase(),
-                    style: const TextStyle(
-                      fontSize: 12,
-                      fontWeight: FontWeight.w600,
+                    child: const Icon(
+                      Icons.add,
+                      color: Colors.white,
+                      size: 40,
                     ),
                   ),
-                ],
-              ),
-            ),
-            disable
-                ? Container(
-                    // height: height,
-                    width: width +8,
-                    decoration: BoxDecoration(
-                      color: Colors.black.withOpacity(0.5),
-                      borderRadius: BorderRadius.circular(borderRadius),
-                    ),
-                  )
-                : Container(),
-            add
-                ? Center(
-                    child: Container(
-                      decoration: BoxDecoration(
-                        color: groupColor[2],
-                        borderRadius: BorderRadius.circular(8),
-                      ),
-                      child: const Icon(
-                        Icons.add,
-                        color: Colors.white,
-                        size: 40,
-                      ),
-                    ),
-                  )
-                : Container(),
-          ],
-        ),
+                )
+              : Container(),
+        ],
       ),
     );
   }
