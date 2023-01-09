@@ -20,3 +20,5 @@ Fixing the error
 Fixed the disabled color issue
 ## 0.0.5+4
 Added the radius to the corners of the shadow
+## 0.0.5+5
+Added the text overflow controls
