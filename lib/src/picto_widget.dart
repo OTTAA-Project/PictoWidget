@@ -67,7 +67,7 @@ class PictoWidget extends StatelessWidget {
     Key? key,
     this.text = '',
     required this.onTap,
-    this.height = 120,
+    this.height = 140,
     this.width = 96,
     this.onLongPress,
     this.imageUrl,
@@ -89,8 +89,8 @@ class PictoWidget extends StatelessWidget {
       child: Stack(
         children: [
           Container(
-            // height: height,
-            // width: width,
+            height: height,
+            width: width,
             padding: const EdgeInsets.all(8),
             decoration: BoxDecoration(
               color: Colors.white,
