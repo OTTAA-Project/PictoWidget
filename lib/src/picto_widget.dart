@@ -67,7 +67,7 @@ class PictoWidget extends StatelessWidget {
     Key? key,
     this.text = '',
     required this.onTap,
-    this.height = 140,
+    this.height = 119,
     this.width = 96,
     this.onLongPress,
     this.imageUrl,
@@ -83,94 +83,103 @@ class PictoWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     assert(colorNumber >= 1 && colorNumber <= 6);
     assert(image != null || imageUrl != null);
-    return GestureDetector(
-      onLongPress: onLongPress,
-      onTap: add ? addFunc : onTap,
-      child: Stack(
-        children: [
-          Container(
-            height: height,
-            width: width,
-            padding: const EdgeInsets.all(8),
-            decoration: BoxDecoration(
-              color: Colors.white,
-              borderRadius: BorderRadius.circular(borderRadius),
-              border: Border.all(color: groupColor[colorNumber]!, width: 3),
-            ),
-            child: Column(
-              // mainAxisAlignment: MainAxisAlignment.spaceAround,
-              children: [
-                Container(
-                  height: 80,
-                  width: 80,
-                  clipBehavior: Clip.antiAlias,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(8),
-                  ),
-                  child: imageUrl != null
-                      ? Image.network(
-                          imageUrl!,
-                          fit: BoxFit.fill,
-                          loadingBuilder: (context, child, loadingProgress) {
-                            if (loadingProgress == null) return child;
-                            return Center(
-                              child: CircularProgressIndicator(
-                                color: Colors.orange,
-                                value: loadingProgress.expectedTotalBytes !=
-                                        null
-                                    ? loadingProgress.cumulativeBytesLoaded /
-                                        loadingProgress.expectedTotalBytes!
-                                    : null,
-                              ),
-                            );
-                          },
-                        )
-                      : image != null
-                          ? image!
-                          : Container(),
+
+
+    return SizedBox(
+      width: width,
+      height: height,
+      child: FittedBox(
+        fit: BoxFit.fill,
+        child: GestureDetector(
+          onLongPress: onLongPress,
+          onTap: add ? addFunc : onTap,
+          child: Stack(
+            children: [
+              Container(
+                height: 119,
+                width: 96,
+                padding: const EdgeInsets.all(8),
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.circular(borderRadius),
+                  border: Border.all(color: groupColor[colorNumber]!, width: 3),
                 ),
-                const SizedBox(
-                  height: 8,
+                child: Flex(
+                  direction: Axis.vertical,
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    Flexible(
+                      fit: FlexFit.tight,
+                      flex: 2,
+                      child: SizedBox(
+                        width: 80,
+                        height: 80,
+                        child: ClipRRect(
+                          borderRadius: BorderRadius.circular(8),
+                          child: imageUrl != null
+                              ? Image.network(
+                                  imageUrl!,
+                                  fit: BoxFit.fill,
+                                  loadingBuilder: (context, child, loadingProgress) {
+                                    if (loadingProgress == null) return child;
+                                    return Center(
+                                      child: CircularProgressIndicator(
+                                        color: Colors.orange,
+                                        value: loadingProgress.expectedTotalBytes != null ? loadingProgress.cumulativeBytesLoaded / loadingProgress.expectedTotalBytes! : null,
+                                      ),
+                                    );
+                                  },
+                                )
+                              : image != null
+                                  ? image!
+                                  : Container(),
+                        ),
+                      ),
+                    ),
+                    Flexible(
+                      fit: FlexFit.loose,
+                      child: Text(
+                        text == '' ? '' : text.toUpperCase(),
+                        style: const TextStyle(
+                          fontSize: 12,
+                          fontWeight: FontWeight.w600,
+                        ),
+                        maxLines: 2,
+                        textAlign: TextAlign.center,
+                        overflow: TextOverflow.ellipsis,
+                      ),
+                    ),
+                  ],
                 ),
-                Text(
-                  text == '' ? '' : text.toUpperCase(),
-                  style: const TextStyle(
-                    fontSize: 12,
-                    fontWeight: FontWeight.w600,
-                  ),
-                  maxLines: 2,
-                  textAlign: TextAlign.center,
-                  overflow: TextOverflow.ellipsis,
-                ),
-              ],
-            ),
+              ),
+              disable
+                  ? Container(
+                      // height: height,
+                      width: width + 8,
+                      decoration: BoxDecoration(
+                        color: Colors.black.withOpacity(0.5),
+                        borderRadius: BorderRadius.circular(borderRadius),
+                      ),
+                    )
+                  : Container(),
+              add
+                  ? Center(
+                      child: Container(
+                        decoration: BoxDecoration(
+                          color: groupColor[2],
+                          borderRadius: BorderRadius.circular(8),
+                        ),
+                        child: const Icon(
+                          Icons.add,
+                          color: Colors.white,
+                          size: 40,
+                        ),
+                      ),
+                    )
+                  : Container(),
+            ],
           ),
-          disable
-              ? Container(
-                  // height: height,
-                  width: width + 8,
-                  decoration: BoxDecoration(
-                    color: Colors.black.withOpacity(0.5),
-                    borderRadius: BorderRadius.circular(borderRadius),
-                  ),
-                )
-              : Container(),
-          add
-              ? Center(
-                  child: Container(
-                    decoration: BoxDecoration(
-                      color: groupColor[2],
-                      borderRadius: BorderRadius.circular(8),
-                    ),
-                    child: const Icon(
-                      Icons.add,
-                      color: Colors.white,
-                      size: 40,
-                    ),
-                  ),
-                )
-              : Container(),
-        ],
+        ),
       ),
     );
   }

@@ -27,40 +27,24 @@ class PictoWidgetExample extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final size = MediaQuery.of(context).size;
     return Scaffold(
       backgroundColor: Colors.white,
-      body: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Expanded(
-            child: GridView.builder(
-              padding: const EdgeInsets.symmetric(horizontal: 24),
-              shrinkWrap: false,
-              itemCount: 20,
-              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                crossAxisCount: 3,
-                crossAxisSpacing: 12,
-                mainAxisSpacing: 12,
-                mainAxisExtent: 140,
-              ),
-              itemBuilder: (context, index) => PictoWidget(
-                onTap: () {
-                  print('tapped');
-                },
-                text: 'Example is preet long thi stime',
-                imageUrl: "https://picsum.photos/200",
-                image: CachedNetworkImage(
-                    imageUrl: "https://picsum.photos/200", fit: BoxFit.cover),
-                colorNumber: 2,
-                onLongPress: () {
-                  print('long pressed');
-                },
-              ),
-            ),
-          ),
-
-        ],
+      body: Center(
+        child: PictoWidget(
+          width: 90,
+          height: 800,
+          onTap: () {
+            print('tapped');
+          },
+          text: 'Example is preet long thi stime',
+          imageUrl: "https://static.arasaac.org/pictograms/2282/2282_300.png",
+          image: CachedNetworkImage(imageUrl: "https://static.arasaac.org/pictograms/2282/2282_300.png", fit: BoxFit.cover),
+          colorNumber: 2,
+          onLongPress: () {
+            print('long pressed');
+          },
+        ),
       ),
     );
   }
