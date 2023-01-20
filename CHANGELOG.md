@@ -30,3 +30,5 @@ Make it to have aspect ratio
 Added the auto text
 ## 0.0.5+9
 added the min and max font size
+## 0.0.5+10
+Fixed the background and add issues in the picto
