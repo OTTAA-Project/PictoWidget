@@ -24,3 +24,5 @@ Added the radius to the corners of the shadow
 Added the text overflow controls
 ## 0.0.5+6
 Fixed the height and width not being used
+## 0.0.5+7
+Make it to have aspect ratio
