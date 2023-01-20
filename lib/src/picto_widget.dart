@@ -1,3 +1,4 @@
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 
 final Map<int, Color> groupColor = {
@@ -84,7 +85,6 @@ class PictoWidget extends StatelessWidget {
     assert(colorNumber >= 1 && colorNumber <= 6);
     assert(image != null || imageUrl != null);
 
-
     return SizedBox(
       width: width,
       height: height,
@@ -138,7 +138,7 @@ class PictoWidget extends StatelessWidget {
                     ),
                     Flexible(
                       fit: FlexFit.loose,
-                      child: Text(
+                      child: AutoSizeText(
                         text == '' ? '' : text.toUpperCase(),
                         style: const TextStyle(
                           fontSize: 12,
@@ -146,6 +146,8 @@ class PictoWidget extends StatelessWidget {
                         ),
                         maxLines: 2,
                         textAlign: TextAlign.center,
+                        wrapWords: false,
+                        softWrap: true,
                         overflow: TextOverflow.ellipsis,
                       ),
                     ),
