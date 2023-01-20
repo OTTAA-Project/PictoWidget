@@ -30,21 +30,28 @@ class PictoWidgetExample extends StatelessWidget {
     final size = MediaQuery.of(context).size;
     return Scaffold(
       backgroundColor: Colors.white,
-      body: Center(
-        child: PictoWidget(
-          width: 90,
-          height: 800,
-          onTap: () {
-            print('tapped');
-          },
-          text: 'Example is preet long thi stime',
-          imageUrl: "https://static.arasaac.org/pictograms/2282/2282_300.png",
-          image: CachedNetworkImage(imageUrl: "https://static.arasaac.org/pictograms/2282/2282_300.png", fit: BoxFit.cover),
-          colorNumber: 2,
-          onLongPress: () {
-            print('long pressed');
-          },
+      body: GridView.builder(
+        padding: const EdgeInsets.all(16),
+        gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+          crossAxisCount: 3,
+          crossAxisSpacing: 12,
+          mainAxisSpacing: 9,
         ),
+        itemCount: 12,
+        itemBuilder: (context, index) {
+          return PictoWidget(
+            onTap: () {
+              print('tapped');
+            },
+            text: 'UNA BICICLETERIA',
+            imageUrl: "https://static.arasaac.org/pictograms/2282/2282_300.png",
+            image: CachedNetworkImage(imageUrl: "https://static.arasaac.org/pictograms/2282/2282_300.png", fit: BoxFit.cover),
+            colorNumber: index % 6 + 1,
+            onLongPress: () {
+              print('long pressed');
+            },
+          );
+        },
       ),
     );
   }
