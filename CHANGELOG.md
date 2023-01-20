@@ -26,3 +26,5 @@ Added the text overflow controls
 Fixed the height and width not being used
 ## 0.0.5+7
 Make it to have aspect ratio
+## 0.0.5+8
+Added the auto text 
