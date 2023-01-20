@@ -27,4 +27,6 @@ Fixed the height and width not being used
 ## 0.0.5+7
 Make it to have aspect ratio
 ## 0.0.5+8
-Added the auto text 
+Added the auto text
+## 0.0.5+9
+added the min and max font size
