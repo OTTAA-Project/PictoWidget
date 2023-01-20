@@ -89,7 +89,7 @@ class PictoWidget extends StatelessWidget {
       width: width,
       height: height,
       child: FittedBox(
-        fit: BoxFit.fill,
+        fit: BoxFit.scaleDown,
         child: GestureDetector(
           onLongPress: onLongPress,
           onTap: add ? addFunc : onTap,
@@ -155,28 +155,34 @@ class PictoWidget extends StatelessWidget {
                   ],
                 ),
               ),
-              disable
-                  ? Container(
-                      // height: height,
-                      width: width + 8,
-                      decoration: BoxDecoration(
-                        color: Colors.black.withOpacity(0.5),
-                        borderRadius: BorderRadius.circular(borderRadius),
+              add
+                  ? SizedBox(
+                      height: 119,
+                      width: 96,
+                      child: Center(
+                        child: Container(
+                          width: 40,
+                          height: 40,
+                          decoration: BoxDecoration(
+                            color: groupColor[2],
+                            borderRadius: BorderRadius.circular(8),
+                          ),
+                          child: const Icon(
+                            Icons.add,
+                            color: Colors.white,
+                            size: 40,
+                          ),
+                        ),
                       ),
                     )
                   : Container(),
-              add
-                  ? Center(
-                      child: Container(
-                        decoration: BoxDecoration(
-                          color: groupColor[2],
-                          borderRadius: BorderRadius.circular(8),
-                        ),
-                        child: const Icon(
-                          Icons.add,
-                          color: Colors.white,
-                          size: 40,
-                        ),
+              disable
+                  ? Container(
+                      height: 119,
+                      width: 96,
+                      decoration: BoxDecoration(
+                        color: Colors.black.withOpacity(0.5),
+                        borderRadius: BorderRadius.circular(borderRadius),
                       ),
                     )
                   : Container(),

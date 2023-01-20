@@ -30,28 +30,34 @@ class PictoWidgetExample extends StatelessWidget {
     final size = MediaQuery.of(context).size;
     return Scaffold(
       backgroundColor: Colors.white,
-      body: GridView.builder(
-        padding: const EdgeInsets.all(16),
-        gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-          crossAxisCount: 3,
-          crossAxisSpacing: 12,
-          mainAxisSpacing: 9,
+      body: Center(
+        child: GridView.builder(
+          padding: const EdgeInsets.all(16),
+          gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+            crossAxisCount: 4,
+            mainAxisExtent: 119,
+            childAspectRatio: 16/9,
+            crossAxisSpacing: 12,
+            mainAxisSpacing: 4,
+          ),
+          itemCount: 12,
+          itemBuilder: (context, index) {
+            return PictoWidget(
+              onTap: () {
+                print('tapped');
+              },
+              text: 'UNA BICICLETERIA',
+              imageUrl: "https://static.arasaac.org/pictograms/2282/2282_300.png",
+              image: CachedNetworkImage(imageUrl: "https://static.arasaac.org/pictograms/2282/2282_300.png", fit: BoxFit.cover),
+              colorNumber: index % 6 + 1,
+              onLongPress: () {
+                print('long pressed');
+              },
+              disable: index % 3 == 0,
+              add: index % 2 == 0,
+            );
+          },
         ),
-        itemCount: 12,
-        itemBuilder: (context, index) {
-          return PictoWidget(
-            onTap: () {
-              print('tapped');
-            },
-            text: 'UNA BICICLETERIA',
-            imageUrl: "https://static.arasaac.org/pictograms/2282/2282_300.png",
-            image: CachedNetworkImage(imageUrl: "https://static.arasaac.org/pictograms/2282/2282_300.png", fit: BoxFit.cover),
-            colorNumber: index % 6 + 1,
-            onLongPress: () {
-              print('long pressed');
-            },
-          );
-        },
       ),
     );
   }
